@@ -28,8 +28,3 @@ jobs:
       - name: Build the site
         run: make html  # Adjust this if your make command differs
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./path_to_build_dir  # Replace with your build directory
