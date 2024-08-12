@@ -1,0 +1,33 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Triggers the action on pushes to the 'main' branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'  # Adjust if you need a specific version
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # Install other dependencies here, if necessary
+
+      - name: Build the site
+        run: make html  # Adjust this if your make command differs
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./path_to_build_dir  # Replace with your build directory
