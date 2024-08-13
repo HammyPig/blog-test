@@ -1,28 +1,28 @@
-name: Deploy Sphinx Site to GitHub Pages
+name: Build and Deploy Sphinx Site to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [ $default-branch ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     container:
       image: sphinxdoc/sphinx
+
     steps:
-      - name: Install packages
+      - uses: actions/checkout@latest
+
+      - name: Install dependencies
         run: |
           pip install myst-nb
           pip install pydata-sphinx-theme
-
-      - name: Checkout
-        uses: actions/checkout@main
         
       - name: Make static files
         run: make html
 
       - name: Create artifact from static files
-        uses: actions/upload-pages-artifact@main
+        uses: actions/upload-pages-artifact@latest
         with:
           path: ./build/html
 
@@ -32,6 +32,7 @@ jobs:
     permissions:
       pages: write
       id-token: write
+
     steps:
       - name: Deploy artifact to GitHub Pages
-        uses: actions/deploy-pages@main
+        uses: actions/deploy-pages@latest
