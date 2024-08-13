@@ -9,7 +9,7 @@ jobs:
     runs-on: "ubuntu"
     steps:
       - name: Set up Python
-        uses: actions/setup-python
+        uses: actions/setup-python@v3
 
       - name: Install dependencies
         run: |
