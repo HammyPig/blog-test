@@ -5,10 +5,14 @@ on:
     branches: [ "main" ]
 
 jobs:
+
+  runs-on: "../.devcontainer/Dockerfile"
+
   build:
-    runs-on: "../.devcontainer/Dockerfile"
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+        
       - name: Make static files
         run: make html
 
