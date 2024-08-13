@@ -32,7 +32,6 @@ jobs:
     needs: build
     permissions:
       id-token: write  # Add this line to grant the necessary permission
-      pages: write  # Required for deploying to GitHub Pages
     steps:
       - name: Deploy artifact to GitHub Pages
         uses: actions/deploy-pages@main
