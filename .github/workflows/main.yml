@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@main
 
       - name: Install dependencies
         run: |
@@ -19,7 +19,7 @@ jobs:
           python -m pip install pydata-sphinx-theme
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@main
         
       - name: Make static files
         run: make html
@@ -42,4 +42,4 @@ jobs:
     steps:
       - name: Deploy artifact to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@main
