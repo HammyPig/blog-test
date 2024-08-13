@@ -2,7 +2,7 @@ name: Build and Deploy Sphinx Site to GitHub Pages
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [ main ]
 
 jobs:
   build:
