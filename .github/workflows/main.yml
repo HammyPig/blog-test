@@ -16,7 +16,7 @@ jobs:
         run: make html
 
       - name: Create artifact from static files
-        uses: actions/upload-pages-artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./build/html
 
