@@ -5,10 +5,8 @@ on:
     branches: [ "main" ]
 
 jobs:
-
-  runs-on: "../.devcontainer/Dockerfile"
-
   build:
+    runs-on: "../.devcontainer/Dockerfile"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
