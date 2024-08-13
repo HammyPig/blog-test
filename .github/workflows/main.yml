@@ -11,7 +11,7 @@ jobs:
       image: sphinxdoc/sphinx
 
     steps:
-      - uses: actions/checkout@latest
+      - uses: actions/checkout@v4
 
       - name: Install dependencies
         run: |
@@ -22,7 +22,7 @@ jobs:
         run: make html
 
       - name: Create artifact from static files
-        uses: actions/upload-pages-artifact@latest
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./build/html
 
@@ -35,4 +35,4 @@ jobs:
 
     steps:
       - name: Deploy artifact to GitHub Pages
-        uses: actions/deploy-pages@latest
+        uses: actions/deploy-pages@v4
