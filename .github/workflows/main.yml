@@ -22,7 +22,7 @@ jobs:
       - name: Make static files
         run: make html
 
-      - name: Upload artifact of static files
+      - name: Package and upload artifact of static files
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./build/html
@@ -35,5 +35,5 @@ jobs:
       id-token: write
 
     steps:
-      - name: Deploy artifact to GitHub Pages
+      - name: Deploy uploaded artifact to GitHub Pages
         uses: actions/deploy-pages@v4
