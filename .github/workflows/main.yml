@@ -22,18 +22,18 @@ jobs:
       - name: Make static files
         run: make html
 
-      - name: Create artifact from static files
+      - name: Upload artifact of static files
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./build/html
 
-  # deploy:
-  #   runs-on: ubuntu-latest
-  #   needs: build
-  #   permissions:
-  #     pages: write
-  #     id-token: write
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
 
-  #   steps:
-  #     - name: Deploy artifact to GitHub Pages
-  #       uses: actions/deploy-pages@v4
+    steps:
+      - name: Deploy artifact to GitHub Pages
+        uses: actions/deploy-pages@v4
