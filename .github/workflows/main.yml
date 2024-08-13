@@ -11,8 +11,8 @@ runs:
 jobs:
   build:
     steps:
+      - uses: actions/checkout@v4
       - name: Make static files
-        uses: actions/checkout@v4
         run: make html
 
       - name: Create artifact from static files
